@@ -1,10 +1,9 @@
-// import logo from './logo.svg';
-// import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Pages/Home/Home/Home';
 import AuthProvider from './context/AuthProvider';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Pages/Login/Login';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
     return (
@@ -23,6 +22,8 @@ function App() {
                         <Route exact path="/login">
                             <Login />
                         </Route>
+
+                        <PrivateRoute path='/placeorder/:carId'></PrivateRoute>
                     </Switch>
                 </BrowserRouter>
             </AuthProvider>

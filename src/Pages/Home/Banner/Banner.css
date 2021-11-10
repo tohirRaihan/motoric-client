@@ -1,0 +1,7 @@
+.banner {
+    background: url('../../../images/banner.jpg') no-repeat center;
+    background-color: rgba(45, 58, 74, 0.6);
+    background-blend-mode: darken, luminosity;
+    background-size: cover;
+    height: 500px;
+}

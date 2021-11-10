@@ -12,8 +12,8 @@ const Navigation = () => {
         <Navbar
             collapseOnSelect
             expand="lg"
-            bg="dark"
-            variant="dark"
+            bg="light"
+            variant="light"
             sticky="top"
         >
             <Container>

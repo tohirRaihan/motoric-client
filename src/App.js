@@ -6,6 +6,7 @@ import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import PurchaseCar from './Pages/PurchaseCar/PurchaseCar/PurchaseCar';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import Register from './Pages/Register/Register';
 
 function App() {
     return (
@@ -23,6 +24,10 @@ function App() {
 
                         <Route exact path="/login">
                             <Login />
+                        </Route>
+
+                        <Route exact path="/register">
+                            <Register />
                         </Route>
 
                         <PrivateRoute path="/purchase/:carId">

@@ -37,6 +37,7 @@ const useFirebase = () => {
                 const destination = location.state?.from || '/home';
                 history.replace(destination);
                 setAuthError('');
+                alert('Registration Successful!');
 
                 // save user to the database
                 saveUserToDatabase(name, email, 'POST');

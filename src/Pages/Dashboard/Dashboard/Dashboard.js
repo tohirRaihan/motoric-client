@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../AdminRoute/AdminRoute';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import Pay from '../Pay/Pay';
 import './Dashboard.css';
 
 const Dashboard = () => {
+    const { admin, logOut } = useAuth();
     let { path, url } = useRouteMatch();
 
     return (
@@ -36,7 +38,7 @@ const Dashboard = () => {
                 />
                 <div className="navbar-nav">
                     <div className="nav-item text-nowrap">
-                        <Link to="/logout" className="nav-link px-3">
+                        <Link onClick={logOut} to="" className="nav-link px-3">
                             Sign out
                         </Link>
                     </div>
@@ -50,59 +52,106 @@ const Dashboard = () => {
                         className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
                     >
                         <div className="position-sticky pt-3">
-                            <ul className="nav flex-column">
-                                <li className="nav-item">
-                                    <NavLink
-                                        to={`${url}`}
-                                        activeClassName="active"
-                                        className="nav-link"
-                                        exact={true}
-                                    >
-                                        <span data-feather="home"></span>
-                                        Dashboard
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink
-                                        to={`${url}/pay`}
-                                        activeClassName="active"
-                                        className="nav-link"
-                                    >
-                                        <span data-feather="home"></span>
-                                        Pay
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink
-                                        to={`${url}/myorders`}
-                                        activeClassName="active"
-                                        className="nav-link"
-                                    >
-                                        <span data-feather="home"></span>
-                                        My Orders
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink
-                                        to={`${url}/review`}
-                                        activeClassName="active"
-                                        className="nav-link"
-                                    >
-                                        <span data-feather="home"></span>
-                                        Review
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink
-                                        to={`${url}/makeAdmin`}
-                                        activeClassName="active"
-                                        className="nav-link"
-                                    >
-                                        <span data-feather="home"></span>
-                                        Make Admin
-                                    </NavLink>
-                                </li>
-                            </ul>
+                            {admin ? (
+                                <ul className="nav flex-column">
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                            exact={true}
+                                        >
+                                            <span data-feather="home"></span>
+                                            Dashboard
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}/manage-all-orders`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                        >
+                                            <span data-feather="home"></span>
+                                            Manage All Orders
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}/add-a-producr`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                        >
+                                            <span data-feather="home"></span>
+                                            Add A Product
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}/makeAdmin`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                        >
+                                            <span data-feather="home"></span>
+                                            Make Admin
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}/manage-products`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                        >
+                                            <span data-feather="home"></span>
+                                            Manage Products
+                                        </NavLink>
+                                    </li>
+
+                                </ul>
+                            ) : (
+                                <ul className="nav flex-column">
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                            exact={true}
+                                        >
+                                            <span data-feather="home"></span>
+                                            Dashboard
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}/pay`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                        >
+                                            <span data-feather="home"></span>
+                                            Pay
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}/myorders`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                        >
+                                            <span data-feather="home"></span>
+                                            My Orders
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to={`${url}/review`}
+                                            activeClassName="active"
+                                            className="nav-link"
+                                        >
+                                            <span data-feather="home"></span>
+                                            Review
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            )}
                         </div>
                     </nav>
 

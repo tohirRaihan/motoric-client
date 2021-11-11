@@ -53,20 +53,6 @@ const Navigation = () => {
                                 >
                                     Dashboard
                                 </NavLink>
-                                {/* <NavLink
-                                    to="/manage-all-orders"
-                                    activeClassName="active"
-                                    className="nav-link"
-                                >
-                                    Manage All Orders
-                                </NavLink>
-                                <NavLink
-                                    to="/add-service"
-                                    activeClassName="active"
-                                    className="nav-link"
-                                >
-                                    Add A New Service
-                                </NavLink> */}
                             </>
                         ) : (
                             ''

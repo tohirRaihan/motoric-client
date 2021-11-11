@@ -1,14 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import './Dashboard.css';
 
 const Dashboard = () => {
+    let { path, url } = useRouteMatch();
+
     return (
-        <div id='dashboard'>
+        <div id="dashboard">
             <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">
+                <Link
+                    to={`${url}`}
+                    className="navbar-brand col-md-3 col-lg-2 me-0 px-3"
+                >
                     Motoric
-                </a>
+                </Link>
                 <button
                     className="navbar-toggler position-absolute d-md-none collapsed"
                     type="button"
@@ -20,12 +25,17 @@ const Dashboard = () => {
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <input className="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"/>
+                <input
+                    className="form-control form-control-dark w-100"
+                    type="text"
+                    placeholder="Search"
+                    aria-label="Search"
+                />
                 <div className="navbar-nav">
                     <div className="nav-item text-nowrap">
-                        <a className="nav-link px-3" href="/">
+                        <Link to="/logout" className="nav-link px-3">
                             Sign out
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </header>
@@ -40,7 +50,7 @@ const Dashboard = () => {
                             <ul className="nav flex-column">
                                 <li className="nav-item">
                                     <NavLink
-                                        to="/dashboard"
+                                        to={`${url}`}
                                         activeClassName="active"
                                         className="nav-link"
                                     >
@@ -48,18 +58,46 @@ const Dashboard = () => {
                                         Dashboard
                                     </NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <NavLink
+                                        to={`${url}/pay`}
+                                        activeClassName="active"
+                                        className="nav-link"
+                                    >
+                                        <span data-feather="home"></span>
+                                        Pay
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink
+                                        to={`${url}/myorders`}
+                                        activeClassName="active"
+                                        className="nav-link"
+                                    >
+                                        <span data-feather="home"></span>
+                                        My Orders
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink
+                                        to={`${url}/review`}
+                                        activeClassName="active"
+                                        className="nav-link"
+                                    >
+                                        <span data-feather="home"></span>
+                                        Review
+                                    </NavLink>
+                                </li>
                             </ul>
                         </div>
                     </nav>
 
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                        <h1>Dashboard</h1>
-                        <h1>Dashboard</h1>
-                        <h1>Dashboard</h1>
-                        <h1>Dashboard</h1>
-                        <h1>Dashboard</h1>
-                        <h1>Dashboard</h1>
-                        <h1>Dashboard</h1>
+                        <Switch>
+                            <Route exact path={path}>
+                                dashboard
+                            </Route>
+                        </Switch>
                     </main>
                 </div>
             </div>

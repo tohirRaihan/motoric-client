@@ -36,6 +36,10 @@ const useFirebase = () => {
                 const destination = location.state?.from || '/home';
                 history.replace(destination);
                 setAuthError('');
+
+                // save user to the database
+                saveUserToDatabase(name, email, 'POST');
+
                 // const user = userCredential.user;
                 const newUser = { email, displayName: name };
                 setUser(newUser);
@@ -71,9 +75,11 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
+                const user = result.user;
+                saveUserToDatabase( user.displayName, user.email, 'PUT');
+                setAuthError('');
                 const destination = location.state?.from || '/home';
                 history.replace(destination);
-                setAuthError('');
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -105,6 +111,18 @@ const useFirebase = () => {
         });
         return () => unsubscribe;
     }, []);
+
+    // save userinfo to database
+    const saveUserToDatabase = (displayName, email, method) => {
+        const user = {  displayName, email };
+        fetch('https://motoric.herokuapp.com/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        }).then();
+    };
 
     return {
         signInUsingGoogle,

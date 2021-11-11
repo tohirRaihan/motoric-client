@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
+import AdminRoute from '../../AdminRoute/AdminRoute';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import Pay from '../Pay/Pay';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -109,9 +111,14 @@ const Dashboard = () => {
                             <Route exact path={path}>
                                 dashboard
                             </Route>
-                            <Route exact path={`${path}/makeAdmin`}>
-                                <MakeAdmin />
+
+                            <Route exact path={`${path}/pay`}>
+                                <Pay />
                             </Route>
+
+                            <AdminRoute exact path={`${path}/makeAdmin`}>
+                                <MakeAdmin />
+                            </AdminRoute>
                         </Switch>
                     </main>
                 </div>

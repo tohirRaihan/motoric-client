@@ -17,11 +17,11 @@ const PlaceOrderForm = ({car}) => {
             address,
             userId: user.uid,
             userEmail: user.email,
-            serviceId: car._id,
+            carId: car._id,
             status: 'pending'
         };
         // POST new order API
-        fetch('https://secure-badlands-19900.herokuapp.com/orders', {
+        fetch('https://motoric.herokuapp.com/orders', {
             method: 'POST',
             body: JSON.stringify(newOrder),
             headers: {

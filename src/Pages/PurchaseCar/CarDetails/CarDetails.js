@@ -1,18 +1,8 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const CarDetails = ({car, setCar}) => {
-    const { carId } = useParams();
-
-    // GET car API
-    useEffect(() => {
-        fetch(`https://motoric.herokuapp.com/cars/${carId}`)
-            .then((res) => res.json())
-            .then((data) => setCar(data));
-    }, [carId]);
-    console.log(car);
+const CarDetails = ({car}) => {
     return (
         <Container>
             <Link to="/home" className="btn btn-sm btn-dark mb-3">

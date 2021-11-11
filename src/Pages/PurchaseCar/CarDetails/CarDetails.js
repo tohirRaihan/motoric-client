@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
-const CarDetails = () => {
-    const [car, setCar] = useState({});
+const CarDetails = ({car, setCar}) => {
     const { carId } = useParams();
 
     // GET car API

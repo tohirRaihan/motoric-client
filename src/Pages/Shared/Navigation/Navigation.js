@@ -40,13 +40,20 @@ const Navigation = () => {
                         {user.email ? (
                             <>
                                 <NavLink
-                                    to="/my-orders"
+                                    to="/explore"
                                     activeClassName="active"
                                     className="nav-link"
                                 >
-                                    My Orders
+                                    Explore
                                 </NavLink>
                                 <NavLink
+                                    to="/dashboard"
+                                    activeClassName="active"
+                                    className="nav-link"
+                                >
+                                    Dashboard
+                                </NavLink>
+                                {/* <NavLink
                                     to="/manage-all-orders"
                                     activeClassName="active"
                                     className="nav-link"
@@ -59,7 +66,7 @@ const Navigation = () => {
                                     className="nav-link"
                                 >
                                     Add A New Service
-                                </NavLink>
+                                </NavLink> */}
                             </>
                         ) : (
                             ''

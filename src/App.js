@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import PurchaseCar from './Pages/PurchaseCar/PurchaseCar/PurchaseCar';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
     return (
@@ -26,6 +27,10 @@ function App() {
 
                         <PrivateRoute path="/purchase/:carId">
                             <PurchaseCar />
+                        </PrivateRoute>
+
+                        <PrivateRoute path="/dashboard">
+                            <Dashboard />
                         </PrivateRoute>
                     </Switch>
                 </BrowserRouter>

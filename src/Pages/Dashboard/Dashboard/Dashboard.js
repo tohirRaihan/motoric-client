@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -53,6 +54,7 @@ const Dashboard = () => {
                                         to={`${url}`}
                                         activeClassName="active"
                                         className="nav-link"
+                                        exact={true}
                                     >
                                         <span data-feather="home"></span>
                                         Dashboard
@@ -88,6 +90,16 @@ const Dashboard = () => {
                                         Review
                                     </NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <NavLink
+                                        to={`${url}/makeAdmin`}
+                                        activeClassName="active"
+                                        className="nav-link"
+                                    >
+                                        <span data-feather="home"></span>
+                                        Make Admin
+                                    </NavLink>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -96,6 +108,9 @@ const Dashboard = () => {
                         <Switch>
                             <Route exact path={path}>
                                 dashboard
+                            </Route>
+                            <Route exact path={`${path}/makeAdmin`}>
+                                <MakeAdmin />
                             </Route>
                         </Switch>
                     </main>

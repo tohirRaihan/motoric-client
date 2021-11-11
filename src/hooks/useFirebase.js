@@ -17,6 +17,7 @@ initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
@@ -76,7 +77,7 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
-                saveUserToDatabase( user.displayName, user.email, 'PUT');
+                saveUserToDatabase(user.displayName, user.email, 'PUT');
                 setAuthError('');
                 const destination = location.state?.from || '/home';
                 history.replace(destination);
@@ -112,9 +113,16 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, []);
 
+    // check if current user is admin or not
+    useEffect(() => {
+        fetch(`https://motoric.herokuapp.com/users/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => setAdmin(data.admin));
+    }, [user.email]);
+
     // save userinfo to database
     const saveUserToDatabase = (displayName, email, method) => {
-        const user = {  displayName, email };
+        const user = { displayName, email };
         fetch('https://motoric.herokuapp.com/users', {
             method: method,
             headers: {
@@ -130,6 +138,7 @@ const useFirebase = () => {
         logInUsingEmailPassword,
         logOut,
         user,
+        admin,
         authError,
         isLoading
     };

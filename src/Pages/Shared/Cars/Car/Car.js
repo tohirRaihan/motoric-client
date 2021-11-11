@@ -48,7 +48,7 @@ const Car = ({car}) => {
                     </div>
                 </div>
                 <ButtonGroup>
-                    <Link className="btn btn-primary rounded-0" to={`/placeorder/${_id}`}>
+                    <Link className="btn btn-primary rounded-0" to={`/purchase/${_id}`}>
                         Buy Now
                     </Link>
                     <Button className="rounded-0" variant="dark">

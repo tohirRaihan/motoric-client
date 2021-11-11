@@ -4,6 +4,7 @@ import AuthProvider from './context/AuthProvider';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import PurchaseCar from './Pages/PurchaseCar/PurchaseCar/PurchaseCar';
 
 function App() {
     return (
@@ -23,7 +24,9 @@ function App() {
                             <Login />
                         </Route>
 
-                        <PrivateRoute path='/placeorder/:carId'></PrivateRoute>
+                        <PrivateRoute path="/purchase/:carId">
+                            <PurchaseCar />
+                        </PrivateRoute>
                     </Switch>
                 </BrowserRouter>
             </AuthProvider>

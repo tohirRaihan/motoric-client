@@ -7,7 +7,7 @@ const Cars = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/cars')
+        fetch('https://motoric.herokuapp.com/cars')
             .then((res) => res.json())
             .then((data) => {
                 setCars(data);
@@ -28,8 +28,8 @@ const Cars = () => {
         <Container>
             <Row className="g-4">
                 {cars.map((car) => (
-                    <Col xs={12} sm={6} md={4}>
-                        <Car key={car._id} car={car} />
+                    <Col key={car._id} xs={12} sm={6} md={4}>
+                        <Car car={car} />
                     </Col>
                 ))}
             </Row>

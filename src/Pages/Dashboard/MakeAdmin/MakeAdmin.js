@@ -38,6 +38,7 @@ const MakeAdmin = () => {
                         alert(
                             `"${email}" has beed added as an admin successfully!`
                         );
+                        event.target.reset();
                     } else if (data.matchedCount) {
                         alert(
                             `User with email "${email}" is already an admin!`

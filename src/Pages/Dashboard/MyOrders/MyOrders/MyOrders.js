@@ -16,7 +16,7 @@ const MyOrders = () => {
     }, []);
 
     return (
-        <main className="my-orders my-5">
+        <section className="my-orders my-5">
             <Container>
                 <h1 className="display-5 fw-bold text-center mb-5">
                     All Of My Orders
@@ -45,7 +45,7 @@ const MyOrders = () => {
                     </tbody>
                 </Table>
             </Container>
-        </main>
+        </section>
     );
 };
 

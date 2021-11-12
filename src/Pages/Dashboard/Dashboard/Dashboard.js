@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../AdminRoute/AdminRoute';
+import PrivateRoute from '../../PrivateRoute/PrivateRoute';
+import AddNewCar from '../AddNewCar/AddNewCar';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import MyOrders from '../MyOrders/MyOrders/MyOrders';
 import Pay from '../Pay/Pay';
@@ -15,7 +17,7 @@ const Dashboard = () => {
         <div id="dashboard">
             <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
                 <Link
-                    to='/'
+                    to="/"
                     className="navbar-brand col-md-3 col-lg-2 me-0 px-3"
                 >
                     Motoric
@@ -78,12 +80,12 @@ const Dashboard = () => {
                                     </li>
                                     <li className="nav-item">
                                         <NavLink
-                                            to={`${url}/add-a-producr`}
+                                            to={`${url}/add-a-new-car`}
                                             activeClassName="active"
                                             className="nav-link"
                                         >
                                             <span data-feather="home"></span>
-                                            Add A Product
+                                            Add A New Car
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">
@@ -98,12 +100,12 @@ const Dashboard = () => {
                                     </li>
                                     <li className="nav-item">
                                         <NavLink
-                                            to={`${url}/manage-products`}
+                                            to={`${url}/manage-cars`}
                                             activeClassName="active"
                                             className="nav-link"
                                         >
                                             <span data-feather="home"></span>
-                                            Manage Products
+                                            Manage Cars
                                         </NavLink>
                                     </li>
                                 </ul>
@@ -157,20 +159,23 @@ const Dashboard = () => {
 
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                         <Switch>
-                            <Route exact path={path}>
+                            <PrivateRoute exact path={path}>
                                 dashboard
-                            </Route>
+                            </PrivateRoute>
 
-                            <Route exact path={`${path}/pay`}>
+                            <PrivateRoute path={`${path}/pay`}>
                                 <Pay />
-                            </Route>
+                            </PrivateRoute>
 
-                            <Route exact path={`${path}/myorders`}>
+                            <PrivateRoute path={`${path}/myorders`}>
                                 <MyOrders />
-                            </Route>
+                            </PrivateRoute>
 
-                            <AdminRoute exact path={`${path}/makeAdmin`}>
+                            <AdminRoute path={`${path}/makeAdmin`}>
                                 <MakeAdmin />
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/add-a-new-car`}>
+                                <AddNewCar />
                             </AdminRoute>
                         </Switch>
                     </main>

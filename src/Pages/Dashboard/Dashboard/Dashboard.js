@@ -3,6 +3,7 @@ import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../AdminRoute/AdminRoute';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import MyOrders from '../MyOrders/MyOrders/MyOrders';
 import Pay from '../Pay/Pay';
 import './Dashboard.css';
 
@@ -14,7 +15,7 @@ const Dashboard = () => {
         <div id="dashboard">
             <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
                 <Link
-                    to={`${url}`}
+                    to='/'
                     className="navbar-brand col-md-3 col-lg-2 me-0 px-3"
                 >
                     Motoric
@@ -105,7 +106,6 @@ const Dashboard = () => {
                                             Manage Products
                                         </NavLink>
                                     </li>
-
                                 </ul>
                             ) : (
                                 <ul className="nav flex-column">
@@ -163,6 +163,10 @@ const Dashboard = () => {
 
                             <Route exact path={`${path}/pay`}>
                                 <Pay />
+                            </Route>
+
+                            <Route exact path={`${path}/myorders`}>
+                                <MyOrders />
                             </Route>
 
                             <AdminRoute exact path={`${path}/makeAdmin`}>

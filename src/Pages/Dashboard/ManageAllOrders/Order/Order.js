@@ -60,7 +60,7 @@ const Order = ({ order, count }) => {
         <tr>
             <td>{count}</td>
             <td>{userEmail}</td>
-            <td>{car?.title}</td>
+            <td>{car?.model}</td>
             <td>${car?.price}</td>
             <td>{phone}</td>
             <td>{address}</td>

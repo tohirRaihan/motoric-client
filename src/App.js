@@ -7,6 +7,7 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import PurchaseCar from './Pages/PurchaseCar/PurchaseCar/PurchaseCar';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Register from './Pages/Register/Register';
+import Error from './Pages/Error/Error';
 
 function App() {
     return (
@@ -37,6 +38,10 @@ function App() {
                         <PrivateRoute path="/dashboard">
                             <Dashboard />
                         </PrivateRoute>
+
+                        <Route path="*">
+                            <Error />
+                        </Route>
                     </Switch>
                 </BrowserRouter>
             </AuthProvider>

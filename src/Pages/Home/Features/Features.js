@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Col, Container, Row } from 'react-bootstrap';
-import { faBiking, faCarAlt, faTaxi, faTools } from '@fortawesome/free-solid-svg-icons';
+import { faBiking, faCarAlt, faTools } from '@fortawesome/free-solid-svg-icons';
 
 const Features = () => {
     return (

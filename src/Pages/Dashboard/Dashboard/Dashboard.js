@@ -5,6 +5,7 @@ import AdminRoute from '../../AdminRoute/AdminRoute';
 import PrivateRoute from '../../PrivateRoute/PrivateRoute';
 import AddNewCar from '../AddNewCar/AddNewCar';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders/ManageAllOrders';
 import MyOrders from '../MyOrders/MyOrders/MyOrders';
 import Pay from '../Pay/Pay';
 import './Dashboard.css';
@@ -171,11 +172,16 @@ const Dashboard = () => {
                                 <MyOrders />
                             </PrivateRoute>
 
-                            <AdminRoute path={`${path}/makeAdmin`}>
-                                <MakeAdmin />
+                            <AdminRoute path={`${path}/manage-all-orders`}>
+                                <ManageAllOrders />
                             </AdminRoute>
+
                             <AdminRoute path={`${path}/add-a-new-car`}>
                                 <AddNewCar />
+                            </AdminRoute>
+
+                            <AdminRoute path={`${path}/makeAdmin`}>
+                                <MakeAdmin />
                             </AdminRoute>
                         </Switch>
                     </main>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Car from '../Car/Car';
 
-const Cars = () => {
+const Cars = ({ isHome }) => {
     const [cars, setCars] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -27,11 +27,17 @@ const Cars = () => {
     return (
         <Container>
             <Row className="g-4">
-                {cars.map((car) => (
-                    <Col key={car._id} xs={12} sm={6} md={4}>
-                        <Car car={car} />
-                    </Col>
-                ))}
+                {isHome
+                    ? cars.slice(0, 6).map((car) => (
+                          <Col key={car._id} xs={12} sm={6} md={4}>
+                              <Car car={car} />
+                          </Col>
+                      ))
+                    : cars.map((car) => (
+                          <Col key={car._id} xs={12} sm={6} md={4}>
+                              <Car car={car} />
+                          </Col>
+                      ))}
             </Row>
         </Container>
     );

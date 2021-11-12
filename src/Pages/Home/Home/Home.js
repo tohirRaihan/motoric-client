@@ -10,8 +10,8 @@ const Home = () => {
             <Navigation />
             <Banner />
             <section className="buy-cars my-5">
-                <h1 className="text-center">Buy Your Dream Car</h1>
-                <Cars />
+                <h1 className="text-center mb-4">Buy Your Dream Car</h1>
+                <Cars isHome={true} />
             </section>
 
             <Footer />

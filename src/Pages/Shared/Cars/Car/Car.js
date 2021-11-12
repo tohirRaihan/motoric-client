@@ -9,22 +9,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Button, ButtonGroup, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './Car.css';
 
 const Car = ({car}) => {
-    const {_id, condition, description, image, maxSpeed, maxTravelDistance, model, oilType, price} = car;
+    const {_id, condition, description, image, maxSpeed, maxTravelDistance, model, fuelType, price} = car;
     return (
         <Card className="shadow h-100">
             <Card.Img
-                height="232"
+                height="200"
                 variant="top"
                 src={image}
             />
             <Card.Body>
-                <Card.Title className="fw-bold">{model}</Card.Title>
-                <div className="course-price">
-                    <span className="text-success fw-bold h2">${price}</span>
+                <div className="price-tag text-end">
+                    <p class="car-price fw-normal">${price} р.</p>
                 </div>
-                <Card.Text className="lead text-muted">
+                <Card.Title className="fw-bold">{model}</Card.Title>
+                <Card.Text className="text-muted fw-light">
                     {description}
                 </Card.Text>
             </Card.Body>
@@ -40,7 +41,7 @@ const Car = ({car}) => {
                     </div>
                     <div className="car-oil">
                         <FontAwesomeIcon icon={faGasPump} />
-                        <span className="text-muted"> {oilType}</span>
+                        <span className="text-muted"> {fuelType}</span>
                     </div>
                     <div className="power-reserve">
                         <FontAwesomeIcon icon={faRoad} />

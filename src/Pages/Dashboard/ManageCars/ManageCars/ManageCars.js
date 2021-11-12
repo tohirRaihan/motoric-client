@@ -70,7 +70,7 @@ const ManageCars = () => {
                                         />
                                     </td>
                                     <td>{car.model}</td>
-                                    <td>{car.price}</td>
+                                    <td>${car.price}</td>
                                     <td>{car.condition}</td>
                                     <td>
                                         <Button

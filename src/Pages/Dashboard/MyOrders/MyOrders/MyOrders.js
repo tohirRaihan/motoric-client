@@ -10,7 +10,7 @@ const MyOrders = () => {
 
     // GET orders API
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user.uid}`)
+        fetch(`https://motoric.herokuapp.com/orders/${user.uid}`)
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, []);

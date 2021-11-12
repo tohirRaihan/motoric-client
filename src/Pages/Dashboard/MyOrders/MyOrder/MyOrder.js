@@ -8,7 +8,7 @@ const MyOrder = ({ order, count }) => {
     // GET car by id API
     useEffect(() => {
         fetch(
-            `http://localhost:5000/cars/${carId}`
+            `https://motoric.herokuapp.com/cars/${carId}`
         )
             .then((res) => res.json())
             .then((data) => setCar(data));
@@ -20,7 +20,7 @@ const MyOrder = ({ order, count }) => {
             'Do you realy want to delete this order?'
         );
         if (confirmDelete) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://motoric.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then((res) => res.json())

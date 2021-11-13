@@ -8,6 +8,7 @@ import PurchaseCar from './Pages/PurchaseCar/PurchaseCar/PurchaseCar';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Register from './Pages/Register/Register';
 import Error from './Pages/Error/Error';
+import ExploreCars from './Pages/ExploreCars/ExploreCars/ExploreCars';
 
 function App() {
     return (
@@ -31,12 +32,16 @@ function App() {
                             <Register />
                         </Route>
 
-                        <PrivateRoute path="/purchase/:carId">
-                            <PurchaseCar />
-                        </PrivateRoute>
+                        <Route path="/explore-cars">
+                            <ExploreCars />
+                        </Route>
 
                         <PrivateRoute path="/dashboard">
                             <Dashboard />
+                        </PrivateRoute>
+
+                        <PrivateRoute path="/purchase/:carId">
+                            <PurchaseCar />
                         </PrivateRoute>
 
                         <Route path="*">

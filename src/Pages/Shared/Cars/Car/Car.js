@@ -22,7 +22,7 @@ const Car = ({car}) => {
             />
             <Card.Body>
                 <div className="price-tag text-end">
-                    <p class="car-price fw-normal">${price} р.</p>
+                    <p className="car-price fw-normal">${price} р.</p>
                 </div>
                 <Card.Title className="fw-bold">{model}</Card.Title>
                 <Card.Text className="text-muted fw-light">

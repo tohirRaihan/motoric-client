@@ -40,11 +40,11 @@ const Navigation = () => {
                         {user.email ? (
                             <>
                                 <NavLink
-                                    to="/explore"
+                                    to="/explore-cars"
                                     activeClassName="active"
                                     className="nav-link"
                                 >
-                                    Explore
+                                    Explore Cars
                                 </NavLink>
                                 <NavLink
                                     to="/dashboard"

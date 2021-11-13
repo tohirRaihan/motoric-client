@@ -9,6 +9,7 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders/ManageAllOrders'
 import ManageCars from '../ManageCars/ManageCars/ManageCars';
 import MyOrders from '../MyOrders/MyOrders/MyOrders';
 import Pay from '../Pay/Pay';
+import Review from '../Review/Review';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -161,17 +162,21 @@ const Dashboard = () => {
 
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                         <Switch>
-                            <PrivateRoute exact path={path}>
+                            <Route exact path={path}>
                                 dashboard
-                            </PrivateRoute>
+                            </Route>
 
-                            <PrivateRoute path={`${path}/pay`}>
+                            <Route path={`${path}/pay`}>
                                 <Pay />
-                            </PrivateRoute>
+                            </Route>
 
-                            <PrivateRoute path={`${path}/myorders`}>
+                            <Route path={`${path}/myorders`}>
                                 <MyOrders />
-                            </PrivateRoute>
+                            </Route>
+
+                            <Route path={`${path}/review`}>
+                                <Review />
+                            </Route>
 
                             <AdminRoute path={`${path}/manage-all-orders`}>
                                 <ManageAllOrders />

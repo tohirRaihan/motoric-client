@@ -41,11 +41,6 @@ const ReviewCarousel = ({ slides }) => {
                         {slides.map((index) => (
                             <div className="embla__slide" key={index}>
                                 <div className="embla__slide__inner">
-                                    {/* <img
-                                    className="embla__slide__img"
-                                    // src={mediaByIndex(index)}
-                                    alt="A cool cat."
-                                /> */}
                                     <div className="card embla__slide__main px-5">
                                         <figure class="text-center">
                                             <FontAwesomeIcon

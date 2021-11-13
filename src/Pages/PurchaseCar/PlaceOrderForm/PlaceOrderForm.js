@@ -36,7 +36,6 @@ const PlaceOrderForm = ({car}) => {
                 } else {
                     alert('Something went wrong please try again');
                 }
-                console.log(data);
             });
     };
     return (

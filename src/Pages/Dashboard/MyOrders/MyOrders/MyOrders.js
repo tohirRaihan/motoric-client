@@ -17,7 +17,7 @@ const MyOrders = () => {
                 setOrders(data);
                 setIsLoading(false);
             });
-    }, []);
+    }, [user.uid]);
 
     return (
         <section className="my-orders my-5">
@@ -40,11 +40,15 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {isLoading ? (
-                            <Spinner
-                                className="d-block mx-auto mt-5"
-                                animation="border"
-                                varient="primary"
-                            />
+                            <tr>
+                                <td colSpan='7'>
+                                    <Spinner
+                                        className="d-block mx-auto mt-5"
+                                        animation="border"
+                                        varient="primary"
+                                    />
+                                </td>
+                            </tr>
                         ) : (
                             orders.map((order) => (
                                 <MyOrder

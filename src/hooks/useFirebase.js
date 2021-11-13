@@ -112,7 +112,7 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribe;
-    }, []);
+    }, [auth]);
 
     // check if current user is admin or not
     useEffect(() => {

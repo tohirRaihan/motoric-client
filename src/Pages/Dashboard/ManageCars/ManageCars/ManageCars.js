@@ -53,11 +53,15 @@ const ManageCars = () => {
                     </thead>
                     <tbody>
                         {isLoading ? (
-                            <Spinner
-                                className="d-block mx-auto mt-5"
-                                animation="border"
-                                varient="primary"
-                            />
+                            <tr>
+                                <td colSpan='6'>
+                                    <Spinner
+                                        className="d-block mx-auto mt-5"
+                                        animation="border"
+                                        varient="primary"
+                                    />
+                                </td>
+                            </tr>
                         ) : (
                             cars.map((car, index) => (
                                 <tr key={car._id}>

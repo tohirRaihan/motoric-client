@@ -1,8 +1,10 @@
+import { faComments, faPlusSquare } from '@fortawesome/free-regular-svg-icons';
+import { faBars, faHandHoldingUsd, faTachometerAlt, faTaxi, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../AdminRoute/AdminRoute';
-import PrivateRoute from '../../PrivateRoute/PrivateRoute';
 import AddNewCar from '../AddNewCar/AddNewCar';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders/ManageAllOrders';
@@ -67,7 +69,10 @@ const Dashboard = () => {
                                             className="nav-link"
                                             exact={true}
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faTachometerAlt}
+                                            />
                                             Dashboard
                                         </NavLink>
                                     </li>
@@ -77,7 +82,10 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             className="nav-link"
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faBars}
+                                            />
                                             Manage All Orders
                                         </NavLink>
                                     </li>
@@ -87,7 +95,10 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             className="nav-link"
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faPlusSquare}
+                                            />
                                             Add A New Car
                                         </NavLink>
                                     </li>
@@ -97,7 +108,10 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             className="nav-link"
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faUserShield}
+                                            />
                                             Make Admin
                                         </NavLink>
                                     </li>
@@ -107,7 +121,10 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             className="nav-link"
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faTaxi}
+                                            />
                                             Manage Cars
                                         </NavLink>
                                     </li>
@@ -121,7 +138,10 @@ const Dashboard = () => {
                                             className="nav-link"
                                             exact={true}
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faTachometerAlt}
+                                            />
                                             Dashboard
                                         </NavLink>
                                     </li>
@@ -131,7 +151,10 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             className="nav-link"
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faHandHoldingUsd}
+                                            />
                                             Pay
                                         </NavLink>
                                     </li>
@@ -141,7 +164,10 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             className="nav-link"
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faBars}
+                                            />
                                             My Orders
                                         </NavLink>
                                     </li>
@@ -151,7 +177,10 @@ const Dashboard = () => {
                                             activeClassName="active"
                                             className="nav-link"
                                         >
-                                            <span data-feather="home"></span>
+                                            <FontAwesomeIcon
+                                                className="me-2 text-muted"
+                                                icon={faComments}
+                                            />
                                             Review
                                         </NavLink>
                                     </li>

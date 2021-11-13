@@ -11,7 +11,7 @@ import { faQuoteRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import Rating from 'react-rating';
 
-const ReviewCarousel = ({ slides }) => {
+const ReviewCarousel = ({ reviews }) => {
     const [viewportRef, embla] = useEmblaCarousel({
         slidesToScroll: 1,
         skipSnaps: false
@@ -38,25 +38,23 @@ const ReviewCarousel = ({ slides }) => {
             <div className="embla">
                 <div className="embla__viewport" ref={viewportRef}>
                     <div className="embla__container">
-                        {slides.map((index) => (
-                            <div className="embla__slide" key={index}>
+                        {reviews.map((review) => (
+                            <div className="embla__slide" key={review._id}>
                                 <div className="embla__slide__inner">
                                     <div className="card embla__slide__main px-5">
-                                        <figure class="text-center">
+                                        <figure className="text-center">
                                             <FontAwesomeIcon
                                                 className="review-quote-icon text-muted h1"
                                                 icon={faQuoteRight}
                                             />
-                                            <blockquote class="blockquote">
+                                            <blockquote className="blockquote">
                                                 <p>
-                                                    A well-known quote,
-                                                    contained in a blockquote
-                                                    element.
+                                                    {review.review}
                                                 </p>
 
                                                 <Rating
                                                     className="text-warning"
-                                                    initialRating={3}
+                                                    initialRating={review.rating}
                                                     readonly
                                                     emptySymbol={
                                                         <FontAwesomeIcon
@@ -71,10 +69,10 @@ const ReviewCarousel = ({ slides }) => {
                                                 />
                                             </blockquote>
 
-                                            <figcaption class="blockquote-footer">
-                                                Someone famous in{' '}
+                                            <figcaption className="blockquote-footer">
+                                                {review.userName}{' '}
                                                 <cite title="Source Title">
-                                                    Source Title
+                                                    ({review.designation})
                                                 </cite>
                                             </figcaption>
                                         </figure>

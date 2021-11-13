@@ -18,7 +18,7 @@ const Reviews = () => {
     return (
         <Carousel variant="dark" className="test-carousel">
             {reviews.map((review) => (
-                <Carousel.Item>
+                <Carousel.Item key={review._id}>
                     <Container className="pb-5">
                         <Row className="justify-content-center text-center">
                             <Col md={6}>

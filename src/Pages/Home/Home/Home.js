@@ -4,6 +4,7 @@ import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from '../Banner/Banner';
 import Features from '../Features/Features';
+import Reviews from '../Reviews/Reviews/Reviews';
 import './Home.css';
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
         <>
             <Navigation />
             <Banner />
-            <section className="features pb-5">
+            <section className="features my-5">
                 <Features />
             </section>
 
@@ -20,6 +21,10 @@ const Home = () => {
                 <Cars isHome={true} />
             </section>
 
+            <section className="customer-reviews my-5">
+                <h1 className="text-center mb-4">Customer Reviews</h1>
+                <Reviews />
+            </section>
             <Footer />
         </>
     );

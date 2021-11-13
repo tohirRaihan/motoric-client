@@ -54,7 +54,6 @@ const ManageAllOrders = () => {
                                 />
                             ))
                         )}
-                        {}
                     </tbody>
                 </Table>
             </Container>

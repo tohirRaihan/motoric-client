@@ -1,11 +1,18 @@
 import { faComments, faPlusSquare } from '@fortawesome/free-regular-svg-icons';
-import { faBars, faHandHoldingUsd, faTachometerAlt, faTaxi, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import {
+    faBars,
+    faHandHoldingUsd,
+    faTachometerAlt,
+    faTaxi,
+    faUserShield
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link, NavLink, Route, Switch, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../AdminRoute/AdminRoute';
 import AddNewCar from '../AddNewCar/AddNewCar';
+import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders/ManageAllOrders';
 import ManageCars from '../ManageCars/ManageCars/ManageCars';
@@ -192,7 +199,7 @@ const Dashboard = () => {
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                         <Switch>
                             <Route exact path={path}>
-                                dashboard
+                                <DashboardHome />
                             </Route>
 
                             <Route path={`${path}/pay`}>

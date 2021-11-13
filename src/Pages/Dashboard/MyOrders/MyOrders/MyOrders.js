@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Container, Spinner, Table } from 'react-bootstrap';
 import useAuth from '../../../../hooks/useAuth';
 import MyOrder from '../MyOrder/MyOrder';
 
 const MyOrders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     let count = 1;
 
     // GET orders API
     useEffect(() => {
         fetch(`https://motoric.herokuapp.com/orders/${user.uid}`)
             .then((res) => res.json())
-            .then((data) => setOrders(data));
+            .then((data) => {
+                setOrders(data);
+                setIsLoading(false);
+            });
     }, []);
 
     return (
@@ -35,13 +39,21 @@ const MyOrders = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map((order) => (
-                            <MyOrder
-                                key={order._id}
-                                order={order}
-                                count={count++}
+                        {isLoading ? (
+                            <Spinner
+                                className="d-block mx-auto mt-5"
+                                animation="border"
+                                varient="primary"
                             />
-                        ))}
+                        ) : (
+                            orders.map((order) => (
+                                <MyOrder
+                                    key={order._id}
+                                    order={order}
+                                    count={count++}
+                                />
+                            ))
+                        )}
                     </tbody>
                 </Table>
             </Container>

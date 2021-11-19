@@ -23,3 +23,7 @@
 -   Edit `.env.local` file to setup firebase authentication and you are good to
     go
 -   To run the project in local server give command **`npm start`**
+
+### Admin login info
+- **email:** admin@admin.com
+- **password:** 123456
